@@ -1,15 +1,17 @@
 N = int(input())
 A = list(map(int, input().split()))
 
-A=sorted(A)
-maxA=max(A)
-limit=maxA/2
-tmp=10**9
-for i in range(N):
-    if(abs(limit-A[i])<tmp):
-        tmp=abs(limit-A[i])
-        comb=A[i]
-    else:
-        break
+Dict={}
 
-print(maxA,comb)
+for i,Num in enumerate(A):
+    Dict[i]=Num
+
+List = sorted(Dict.items(), key=lambda x:x[1])
+S=List[(N//2)-1][1]
+B=List[(N//2)][1]
+for i in range(N):
+    if(Dict[i]<=S):
+        print(B)
+    else:
+        print(S)
+
