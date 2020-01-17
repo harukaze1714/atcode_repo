@@ -1,20 +1,26 @@
-S=list(input())
-
-Dict={}
-Dict["a"]=1
-Dict["b"]=1
-Dict["c"]=1
-for i in range(len(S)):
-    Dict[S[i]]+=1
-if(("".join(S)=="aa")|("".join(S)=="bb")|("".join(S)=="cc")):
-    print("NO")
-    exit()
-
-if(len(S)<3):
-    print("YES")
-    exit()
-
-if((max(Dict.values())-min(Dict.values()))>1):
-    print("NO")
-else:
-    print("YES")  
+S=input()
+T="AKIHABARA"
+c=0
+t=0
+while(True):
+    if(len(S)==c):
+        if(T[t]=="A"):
+            t+=1
+        else:
+            print("NO")
+            exit()
+    elif(S[c]==T[t]):
+        c+=1
+        t+=1
+    else:
+        if(T[t]=="A"):
+            t+=1
+        else:
+            print("NO")
+            exit()
+    if(len(S)==c and t==9):
+        print("YES")
+        exit()
+    elif(t==9):
+        print("NO")
+        exit()

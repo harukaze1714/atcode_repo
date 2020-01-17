@@ -1,9 +1,16 @@
 N = int(input())
 A=list(map(int,input().split()))
-s=0
+L=[0]*65
+MOD=(10**9+7)
 for i in range(N):
-    for j in range(i+1,N):
-        t=bin(A[i] ^ A[j])
-        s+=int(t,0)
-        s%=(10**9+7)
-print(s)
+    t=str(format(A[i],"b"))
+    for j in range(len(t)):
+        L[j]+=int(t[-j-1])
+
+for i in range(len(L)):
+    L[i]=L[i]*(N-L[i])
+    L[i]*=2**i
+    L[i]%=MOD
+print(sum(L)%MOD)
+
+

@@ -1,0 +1,34 @@
+N=int(input())
+S1=input()
+S2=input()
+LIST=[]
+i=0
+while(N>i):
+    if(S1[i]==S2[i]):
+        LIST.append(1)
+    else:
+        LIST.append(0)
+        i+=1
+    i+=1
+
+s=1
+t=9
+for i in range(len(LIST)):
+    if(t==0):
+        if(LIST[i]==0):
+            s*=3
+        else:
+            s*=1
+    elif(t==1):
+        if(LIST[i]==0):
+            s*=2
+        else:
+            s*=2
+    else:
+        if(LIST[i]==0):
+            s*=6
+        else:
+            s*=3
+    t=LIST[i]
+    s=s%1000000007
+print(s)
